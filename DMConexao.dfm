@@ -5,17 +5,13 @@ object frmDMConexao: TfrmDMConexao
   Width = 448
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'DriverID=FB'
       'MonitorBy=Custom'
       'PageSize=16384'
-      'Password=masterkey'
       'Pooled=False'
       'Server=127.0.0.1'
       'Port=3050'
-      
-        'Database=C:\Users\rei00\Documents\Embarcadero\Studio\Projects\Pr' +
-        'ojetoAbastecimentos\BANCO.FDB'
-      'User_Name=sysdba')
+      'Protocol=TCPIP'
+      'DropDatabase=Yes')
     LoginPrompt = False
     Left = 168
     Top = 64
