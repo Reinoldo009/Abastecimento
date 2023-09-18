@@ -66,9 +66,11 @@ begin
       if not Assigned(LIniFile) then
         raise Exception.Create('Não foi possível ler as configurações de conexão com o sistema');
 
-
       FDConnection1.Params.DriverID := 'FB';
       FDConnection1.Params.Values['Protocol'] := 'ipTCPIP';
+      FDConnection1.Params.Values['DropDatabase'] := 'False';
+      FDConnection1.Params.Values['PageSize'] := '16384';
+      FDConnection1.Params.Values['SqlDialect'] := '3';
       FDConnection1.Params.Values['Port']     := LIniFile.ReadInteger('Config', 'Port', 3050).ToString;
       FDConnection1.Params.Values['Server']   := LIniFile.ReadString('Config', 'Host', '127.0.0.1');
 
@@ -76,6 +78,7 @@ begin
       FDConnection1.Params.Password := LIniFile.ReadString('Config', 'Password', 'masterkey');
       FDConnection1.Params.Database := LIniFile.ReadString('Config', 'Database', '');
       FDConnection1.LoginPrompt := False;
+
       try
         FDConnection1.Open;
         vConexaoSistema := FDConnection1;

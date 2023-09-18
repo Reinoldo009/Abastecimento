@@ -11,7 +11,10 @@ object frmDMConexao: TfrmDMConexao
       'Server=127.0.0.1'
       'Port=3050'
       'Protocol=TCPIP'
-      'DropDatabase=Yes')
+      'DropDatabase=No'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'DriverID=FB')
     LoginPrompt = False
     Left = 168
     Top = 64
@@ -29,8 +32,6 @@ object frmDMConexao: TfrmDMConexao
   end
   object FDMoniCustomClientLink1: TFDMoniCustomClientLink
     OnOutput = FDMoniCustomClientLink1Output
-    Tracing = True
-    Synchronize = True
     Left = 256
     Top = 96
   end
