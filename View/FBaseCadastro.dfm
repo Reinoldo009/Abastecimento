@@ -13,6 +13,7 @@ object frmBaseCadastro: TfrmBaseCadastro
   KeyPreview = True
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -95,7 +96,6 @@ object frmBaseCadastro: TfrmBaseCadastro
       OnClick = pnlSalvarClick
       OnMouseEnter = pnlMouseEnter
       OnMouseLeave = pnlIMouseLeave
-      ExplicitLeft = 179
     end
     object pnlFechar: TPanel
       AlignWithMargins = True
@@ -120,7 +120,6 @@ object frmBaseCadastro: TfrmBaseCadastro
       OnClick = pnlFecharClick
       OnMouseEnter = pnlMouseEnter
       OnMouseLeave = pnlIMouseLeave
-      ExplicitLeft = 267
     end
   end
   object pnlDados: TPanel

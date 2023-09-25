@@ -34,6 +34,7 @@ type
     procedure tmrConfiguracaoGridTimer(Sender: TObject);
     procedure dbgConsultaDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FOnEditar: TAbastIntegerProc;
     FOnExcluir: TAbastIntegerFunc;
@@ -243,6 +244,25 @@ procedure TfrmConsulta.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   SalvarConfiguracoesColunasGrid;
   Action := caFree;
+end;
+
+procedure TfrmConsulta.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Shift = [ssCtrl] then
+  begin
+    if (Key = Ord('I')) or (Key = VK_INSERT) then
+      btnIncluirClick( pnlIncluir )
+
+    else if (Key = Ord('E')) then
+      btnEditarClick( pnlEditar )
+
+    else if (Key = Ord('D')) or (Key = VK_DELETE) then
+      btnExcluirClick( pnlExcluir )
+
+    else if (Key = Ord('W')) or (Key = VK_F4) then
+      btnFecharClick( pnlFechar )
+  end;
 end;
 
 procedure TfrmConsulta.FormShow(Sender: TObject);

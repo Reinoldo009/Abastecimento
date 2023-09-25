@@ -21,6 +21,7 @@ type
     procedure pnlSalvarClick(Sender: TObject);
     procedure pnlMouseEnter(Sender: TObject);
     procedure pnlIMouseLeave(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FId: Integer;
     FAbastFormState: TAbastFormState;
@@ -61,6 +62,27 @@ begin
     AbastFormState := fsAInsert
   else
     AbastFormState := fsAEdit;
+end;
+
+procedure TfrmBaseCadastro.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Shift = [ssCtrl] then
+  begin
+    if (Key = Ord('I')) or (Key = VK_INSERT) then
+      pnlIncluirClick( pnlIncluir )
+
+    else if Key = Ord('S') then
+      pnlSalvarClick( pnlSalvar )
+
+    else if Key = VK_F4 then
+      pnlFecharClick( pnlSalvar );
+  end
+  else
+  begin
+    if Key = VK_RETURN then
+      SelectNext( Screen.ActiveControl, True, True );
+  end;
 end;
 
 procedure TfrmBaseCadastro.FormShow(Sender: TObject);
