@@ -107,7 +107,6 @@ end;
 
 function TfrmCadastroCombustivel.Validar: Boolean;
 begin
-  cdsDados.Post;
   TCombustivelRepository.GetInstance.QueryParaObjeto( cdsDados, FCombustivel );
   Result := TCombustivelRepository.GetInstance.Validar( FCombustivel );
 end;
